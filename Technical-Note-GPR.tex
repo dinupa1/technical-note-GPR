@@ -5,7 +5,12 @@
 \documentclass{article}
 
 % use packages
+\usepackage[english]{babel}
 \usepackage{amsmath}
+% \usepackage{biblatex}
+
+
+\addbibresource{Technical-Note-GPR.bib}
 
 
 % title, author, date
@@ -18,5 +23,33 @@
 
 % title
 \maketitle
+
+% abstract
+\begin{abstract}
+Gaussian process regression (GPR) is a widely used learning techinique in machine learning.
+\end{abstract}
+
+% Introduction
+\section{Introduction}
+
+The Gaussian process model is a probabalistic supervised machine learning techinique used in classifiacation and regression tasks.
+
+\section{Mathematical Baics}
+
+Consider set of observerd data points. We want to fit a fucntion to represent these data points and then make a prediction at new data points. This is know as the regression. For a given set of obsereved data points, there are infinite number of possible functions that fit these data points. In GPR, Gaussian process conduct the regression by defining a distribution over these infinite number of functions.
+
+\subsection{Gaussian Distribution}
+
+A random variable $X$ is Gaussian or normally distributed with mean $\mu$ and variance $\sigma^{2}$ if its probability function(PDF) is \cite{kevin};
+
+\begin{equation}
+P_{X}(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+\end{equation}
+
+where $X$ is the random variables and $x$ is the real argument.
+
+% Phys. Rev. style
+% \bibliographystyle{plain}
+% \bibliography{Technical-Note-GPR}
 
 \end{document}
