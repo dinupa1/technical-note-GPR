@@ -30,7 +30,7 @@ X = np.linspace(start=0, stop=10, num=1000).reshape(-1, 1)
 y = np.squeeze(X * np.sin(X))
 
 rng = np.random.RandomState(1)
-training_indices = rng.choice(np.arange(y.size), size=25, replace=False)
+training_indices = rng.choice(np.arange(y.size), size=15, replace=False)
 X_train, y_train = X[training_indices], y[training_indices]
 
 noise_std = 0.75
@@ -71,3 +71,5 @@ plt.legend()
 plt.xlabel("$x$")
 plt.ylabel("$f(x)$")
 plt.savefig('imgs/rbf.png')
+
+print("*** done ***")
