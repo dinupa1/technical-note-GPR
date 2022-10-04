@@ -1,21 +1,23 @@
-% author = Dinupa Nawarathne
-% email = dinupa3@gmail.com
-% date = 10-01-2022
+% author  Dinupa Nawarathne
+% email  dinupa3@gmail.com
+% date  10-01-2022
+
 
 \documentclass{article}
 
 % use packages
-\usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
-% \usepackage{biblatex}
+\usepackage[backend=bibtex, style=science]{biblatex}
+\usepackage{hyperref}
 
-
+% refs file
+\addbibresource{refs.bib}
 
 % title, author, date
 \title{Gaussian Process Regression}
-\author{NMSU Nuclear Physics Group}
+\author{Vassili Papavassiliou, \and Stephen Pate-Morales, \and Abinash Pun, \and Forhad Hossain, \and Dinupa Nawarathne, \and Harsha Kaluarachchi}
 \date{October 01, 2022}
 
 % document
@@ -171,13 +173,16 @@ One of the most commonly used machine leaning library in \verb|python| is \verb|
 
 \subsection{Example}
 
-Let's consider a $x\sin(x)$ function with some random noise. Out goal is to get the mean prediction and the prediction error using \verb|sklearn| library with GPR method. We use the RBF kernel as the covariance function to make this prediction. Here GPR class was trained with 9 iterations before making the perdition. Error of the prediction is simply the square root of the diagonal values of the covariance function.
+Let's consider a distribution of the form $x\sin(x)$ with some random noise. Out goal is to get the mean prediction and the prediction error using \verb|sklearn| library with GPR method. We use the RBF kernel as the covariance function to make this prediction. Here GPR class was trained with 9 iterations before making the perdition. Error of the prediction is simply the square root of the diagonal values of the covariance function.
 
 \begin{figure}
 \centering
 \includegraphics[width=8.0cm]{imgs/rbf.png}
 \caption{Prediction using GPR method with sklearn.}
+\label{rbf}
 \end{figure}
+
+According to figure \ref{rbf} predition error is relatively minimum in the region $2. < x < 4.$. This is because we have more observations in that region hence the small predition error. In the region $6. < x < 8.$ we have a relative large error because we have very few observations to make a prediction. This will cause the large prediction error.
 
 Some disadvantages of the Gaussian process include \cite{scikit-learn};
 
@@ -187,7 +192,6 @@ Some disadvantages of the Gaussian process include \cite{scikit-learn};
 \end{itemize}
 
 
-\bibliographystyle{plain}
-\bibliography{refs}
+\printbibliography
 
 \end{document}
