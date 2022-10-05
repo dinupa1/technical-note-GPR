@@ -50,7 +50,7 @@ Consider set of observed data points. We want to fit a function to represent the
 
 \subsection{Gaussian Distribution}
 
-A random variable $X$ is Gaussian or normally distributed with mean $\mu$ and variance $\sigma^{2}$ if its probability function(PDF) is \cite{murphy2012machine};
+A random variable $X$ is Gaussian or normally distributed with mean $\mu$ and variance $\sigma^{2}$ if its probability density function(PDF) is \cite{murphy2012machine};
 
 \begin{equation}
 P_{X}(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
@@ -128,7 +128,7 @@ This property will be useful in deriving Gaussian process predictions.
 We need to have a smooth function to define the covariance matrix. This can be done by covariance functions.If a function is defined solely in terms of inner products in the input space, then the kernel function $k(x, x^{\prime})$ is a kernel function. One of the most common used kernel function is radial basis function (RBF) kernel;
 
 \begin{equation}
-k(x_{i}, k_{j}) = \exp(-\frac{(x_{i} - x_{j})^{2}}{2l})
+k(x_{i}, x_{j}) = \exp(-\frac{(x_{i} - x_{j})^{2}}{2l^{2}})
 \end{equation}
 
 where $l$ is a free parameter and $x_{i} - x_{j}$ is the Euclidean distance.
@@ -183,6 +183,8 @@ Let's consider a distribution of the form $x\sin(x)$ with some random noise. Out
 \end{figure}
 
 According to figure \ref{rbf} predition error is relatively minimum in the region $2. < x < 4.$. This is because we have more observations in that region hence the small predition error. In the region $6. < x < 8.$ we have a relative large error because we have very few observations to make a prediction. This will cause the large prediction error.
+
+In RBF kernel class length scale and length scale bounds are the two parameters we can used to optimize in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html}{GPR}. Some of the common parameter we can optimize in GPR class is kernel, alpha value added to the diagonal of the kernel in the training, optimizer and number of restarts of the optimizer. More details about this class can be found in \verb|sklearn| \href{https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessRegressor.html} {documentation}. Some of the in build kernels is given in their \href{https://scikit-learn.org/stable/modules/gaussian_process.html#kernels-for-gaussian-processes}{documentation}.
 
 Some disadvantages of the Gaussian process include \cite{scikit-learn};
 
